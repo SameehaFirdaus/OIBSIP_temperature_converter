@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Temperature Converter</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-image: url('https://media.istockphoto.com/id/1161309754/photo/closeup-a-thermometer-showing-high-temperature-against-green-trees-in-summer-sunlight.jpg?s=612x612&w=0&k=20&c=zWfuoKuk8KccHKFeqzXQam8ztM6-v6zVhsAvc9Hpa6A='); /* Replace 'background_image.jpg' with your image path */
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    #converter {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    input[type="text"], select, button {
+      padding: 10px;
+      margin: 5px 0;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #result {
+      margin-top: 10px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+
+</head>
+<body>
+  <div id="converter">
+    <h1>TEMPERATURE CONVERTER</h1>
+    <input type="text" id="temperature" placeholder="Enter temperature">
+    <select id="unit">
+      <option value="celsius">Celsius</option>
+      <option value="fahrenheit">Fahrenheit</option>
+    </select>
+    <button onclick="convertTemperature()">Convert</button>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function convertTemperature() {
+      var temperatureInput = document.getElementById("temperature").value;
+      var unit = document.getElementById("unit").value;
+      var convertedTemperature;
+
+      if (unit === "celsius") {
+        convertedTemperature = (temperatureInput * 9 / 5) + 32;
+        document.getElementById("result").innerHTML = convertedTemperature + " °F";
+      } else {
+        convertedTemperature = (temperatureInput - 32) * 5 / 9;
+        document.getElementById("result").innerHTML = convertedTemperature + " °C";
+      }
+    }
+  </script>
+</body>
+</html>
